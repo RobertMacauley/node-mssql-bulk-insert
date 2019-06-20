@@ -1,1 +1,1 @@
-# node-mssql-db-schema-generator
+# node-mssql-bulk-insert
