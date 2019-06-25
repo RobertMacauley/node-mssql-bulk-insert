@@ -17,8 +17,8 @@ outputting the schema, which allows you to easily import into your project
 Future plans 
 1. Turn it into a useable npm package
 2. Provide an easy interface that uses the generate schema as an example of how I'd use this
-3. ~~Allow more config options for a more flexible use for others
-4. ~~Generate formatted objects for readability purposes
+3. ~~Allow more config options for a more flexible use for others~~
+4. ~~Generate formatted objects for readability purposes~~
 5. For those who use ts, look at type / interface generation 
 
 Thanks for viewing, feel free to contribute or provide feedback :)
