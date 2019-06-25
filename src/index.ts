@@ -1,6 +1,10 @@
 const sql = require("mssql");
 const fs = require("fs");
 
+interface SchemaGeneratorOptions {
+    humanReadable: boolean;
+}
+
 
 class SchemaGenerator {
     connection: any;
@@ -9,7 +13,7 @@ class SchemaGenerator {
     }
 
     
-    async generateSchemas() {
+    async generateSchemas(options: SchemaGeneratorOptions) {
 
         const connection = await this.connection;
         connection.request().query(`SELECT t.name
@@ -23,7 +27,7 @@ class SchemaGenerator {
                 schemas[table.name] = await this.getTableDetail(table.name);
             }
     
-            let content = JSON.stringify(schemas);
+            let content = JSON.stringify(schemas, null, options.humanReadable ? "\t" : null);
             content = "export default " + content;
             console.log(schemas);
             fs.writeFileSync("./schema/dbSchemas.ts", content);
@@ -84,4 +88,6 @@ const schemaGenerator = new SchemaGenerator({
     "server": "server",
     "database": "database"
 });
-schemaGenerator.generateSchemas();
+schemaGenerator.generateSchemas({
+    humanReadable: true
+});
