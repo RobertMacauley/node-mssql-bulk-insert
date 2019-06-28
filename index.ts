@@ -1,5 +1,5 @@
-const sql = require("mssql");
-const fs = require("fs");
+import sql from 'mssql';
+import fs from 'fs'
 
 interface SchemaGeneratorOptions {
     humanReadable: boolean;

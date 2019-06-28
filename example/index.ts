@@ -1,11 +1,13 @@
-import SchemaGenerator from './schemaGenerator';
+import SchemaGenerator from '..';
 
-const schemaGenerator = new SchemaGenerator({
+const databaseConnection = {
     "user": "username",
     "password": "password",
     "server": "server",
     "database": "database"
-}).generateSchemas({
+}
+
+const schemaGenerator = new SchemaGenerator(databaseConnection).generateSchemas({
     humanReadable: true,
     schemaFilePath: './schema/dbSchemas.ts',
     tableSchemas: ['dbo', 'diagnostics'],
